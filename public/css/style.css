@@ -1,0 +1,18 @@
+body {
+    background: rgb(17, 8, 164);
+    background: linear-gradient(90deg, rgba(17, 8, 164, 1) 59%, rgba(9, 9, 121, 1) 72%, rgba(0, 212, 255, 1) 100%);
+}
+
+.carta {
+    -webkit-box-shadow: 20px 4px 51px -3px rgba(0, 0, 0, 0.66);
+    -moz-box-shadow: 20px 4px 51px -3px rgba(0, 0, 0, 0.66);
+    box-shadow: 20px 4px 51px -3px rgba(0, 0, 0, 0.66);
+    background: rgb(145, 139, 235);
+    background: linear-gradient(90deg, rgba(145, 139, 235, 1) 27%, rgba(246, 242, 204, 0.2735294801514355) 87%);
+    background-image: url("../img/imgFormulario.jpg");
+}
+
+label,
+h1 {
+    color: white;
+}

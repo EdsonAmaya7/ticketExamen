@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TicketTurnoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+Route::get('viewTicketTurno', [TicketTurnoController::class, 'index'])->name('viewTicketTurno');
+
+// Route::resource([
+//     'ticketTurno' => TicketTurnoController::class,
+// ]);
