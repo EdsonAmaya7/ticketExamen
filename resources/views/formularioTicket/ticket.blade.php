@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="container-fluid mt-5">
-        <div class="card carta" style="width: 75%; margin: 12%; opacity: .9">
+        <div class="card carta" style="width: 50%; margin: 12% 25%; opacity: .9">
             <form id="form" method="post" id="formulario" style="margin: 2rem 2rem 2rem 2rem">
                 <div class="row">
                     <div class="col-md-12 text-center">
@@ -63,7 +63,7 @@
                 <div class="row mt-2">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label for="">¿Nivel que desea ingresar o que ya cursa el alumno?</label>
+                            <label for="">¿Nivel que cursa o cursará?</label>
                             <select name="nivel_curso" id="nivel_curso" class="form-select">
                                 <option value="">Seleccione una opción</option>
                                 <option value="1">Preescolar</option>
