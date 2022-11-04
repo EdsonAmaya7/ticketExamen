@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="container-fluid mt-5 text-center">
-        <div class="card carta" style="width: 75%; margin: 12%">
+        <div class="card carta" style="width: 50%; margin: 15% 25%;">
             <form id="login" style="margin: 2rem 2rem 2rem 2rem">
                 <div class="row">
                     <div class="col-md-12">
