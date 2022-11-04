@@ -15,10 +15,10 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">TABLA</div>
+                <div class="card-header">Tabla de Tickets</div>
 
                 <div class="card-body">
-                    <table>
+                    <table style="width:100%">
                         <thead>
                             <th>Folio</th>
                             <th>Nombre Tramite</th>
@@ -29,10 +29,10 @@
                             <th>Municipio</th>
                             <th>Asunto</th>
                             <th>Status</th>
-                            <th><a name="" id="" class="btn btn-primary" href="#" role="button">Editar</a></th>
+                            <th><a name="" id="" class="btn btn-primary" href="#" role="button">Editar</a></th>                                   
                         </thead>
-                        <tbody>
-
+                        <tbody> 
+                          
                         </tbody>
                     </table>
                 </div>

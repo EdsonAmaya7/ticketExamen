@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\TicketTurnoController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,9 +21,7 @@ Route::get('/', function () {
 
 Route::get('viewTicketTurno', [TicketTurnoController::class, 'index'])->name('viewTicketTurno');
 
-Route::get('/admin', function () {
-    return view('formularioTicket.admin');
-})->name('admin');
+Route::get('/admin', [adminController::class,"index"] )->name('admin.index');
 
 
 // Route::resource([
