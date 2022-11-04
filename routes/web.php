@@ -20,6 +20,11 @@ Route::get('/', function () {
 
 Route::get('viewTicketTurno', [TicketTurnoController::class, 'index'])->name('viewTicketTurno');
 
+Route::get('/admin', function () {
+    return view('formularioTicket.admin');
+})->name('admin');
+
+
 // Route::resource([
 //     'ticketTurno' => TicketTurnoController::class,
 // ]);
