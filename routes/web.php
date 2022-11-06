@@ -20,9 +20,11 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+})->middleware(['auth'
+, 'verified'
+])->name('dashboard');
 
-
+//al ultimo agregar el middleware de auth y verified a la ruta admin
 Route::get('/admin', [adminController::class,"index"] )->name('admin.index');
 
 Route::get('viewTicketTurno', [TicketTurnoController::class, 'index'])->name('viewTicketTurno');
