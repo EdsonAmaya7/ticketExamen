@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\adminController;
-use App\Http\Controllers\TicketTurnoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('welcome');
 });
 
-Route::get('viewTicketTurno', [TicketTurnoController::class, 'index'])->name('viewTicketTurno');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/admin', [adminController::class,"index"] )->name('admin.index');
-
-
-// Route::resource([
-//     'ticketTurno' => TicketTurnoController::class,
-// ]);
+require __DIR__.'/auth.php';
