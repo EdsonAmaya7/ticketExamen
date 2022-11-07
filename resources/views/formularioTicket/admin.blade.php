@@ -9,6 +9,7 @@ Ticket de Turno
 
 
 <div>
+@include('layouts.navigation')
     <h1 class="text-center m-5">PESTAÑA PARA ADMINISTRADORES</h1>
     <div class="row justify-content-center">
         <div class="col-md-10">

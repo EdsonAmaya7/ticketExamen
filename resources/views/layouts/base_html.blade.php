@@ -11,9 +11,14 @@
     <link rel="stylesheet" href="{{ asset('lib/bootstrap5/css/bootstrap.min.css') }}">
 
     {{-- DATATABLES --}}
-    <link rel="stylesheet" href="{{ asset('lib/dataTables/datatables.bootstrap5.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('lib/dataTables/responsive.datatables.min.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('lib/dataTables/datatables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/dataTables/responsive.datatables.min.css') }}"> -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+
+    {{-- directiva para las rutas de ziggy --}}
+    @routes
+    {{-- swal alert libreria --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -38,7 +43,7 @@
         {{-- @yield('footer') --}}
     </footer>
 </body>
-
+@stack("scripts")
 {{-- BOOSTRAP 5 JS --}}
 <script src="{{ asset('lib/bootstrap5/js/bootstrap.bundle.min.js') }}"></script>
 

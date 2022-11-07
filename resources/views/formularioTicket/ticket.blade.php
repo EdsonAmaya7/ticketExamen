@@ -6,6 +6,7 @@
 @endsection
 
 @section('content')
+@include('layouts.navigation')
     <div class="container-fluid mt-5">
         <div class="card carta" style="width: 50%; margin: 12% 25%; opacity: .9">
             <form id="form" method="post" id="formulario" style="margin: 2rem 2rem 2rem 2rem">
