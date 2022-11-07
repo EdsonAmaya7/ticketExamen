@@ -8,12 +8,19 @@
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
                     </a>
+
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('admin') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                        Administrar Ticket
+                    </x-nav-link>
+                    <x-nav-link :href="route('viewTicketTurno')" :active="request()->routeIs('viewTicketTurno')">
+                        Ticket
                     </x-nav-link>
                 </div>
                 @guest
@@ -77,6 +84,12 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
+                Administrar Ticket
+            </x-nav-link>
+            <x-nav-link :href="route('viewTicketTurno')" :active="request()->routeIs('viewTicketTurno')">
+                Ticket
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
