@@ -27,6 +27,15 @@ Route::get('/dashboard', function () {
 //al ultimo agregar el middleware de auth y verified a la ruta admin
 Route::get('/admin', [adminController::class,"index"] )->name('admin.index');
 
+//ruta que trae todos los tickets de la bd
+Route::get('/getTickets',[TicketTurnoController::class,'getTickets'])->name('getTickets');
+//ruta eliminar tickets
+Route::delete('/ticket/{id}',[TicketTurnoController::class,'destroy'])->name('ticket.destroy');
+//vista para editar tickets
+Route::get('/ticket/{id}/edit',[TicketTurnoController::class,'edit'])->name('ticket.edit');
+//ruta actualizar tickets
+Route::put('/ticket/{id}',[TicketTurnoController::class,'update'])->name('ticket.update');
+
 Route::get('viewTicketTurno', [TicketTurnoController::class, 'index'])->name('viewTicketTurno');
 // Route::resource([
 //     'ticketTurno' => TicketTurnoController::class,

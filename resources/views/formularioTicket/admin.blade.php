@@ -2,23 +2,22 @@
 
 {{-- Titulo --}}
 @section('title')
-    Ticket de Turno
+Ticket de Turno
 @endsection
 
 @section('content')
 
 
 <div>
-
     <h1 class="text-center m-5">PESTAÑA PARA ADMINISTRADORES</h1>
-
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Tabla de Tickets</div>
+                <a href="" class="d-bloke boton  pt-5 pb-3 mb-5">Agregar</a>
+
 
                 <div class="card-body">
-                    <table style="width:100%">
+                    <table id="adminControl" style="width:100%;text-align:center">
                         <thead>
                             <th>Folio</th>
                             <th>Nombre Tramite</th>
@@ -29,10 +28,11 @@
                             <th>Municipio</th>
                             <th>Asunto</th>
                             <th>Status</th>
-                            <th><a name="" id="" class="btn btn-primary" href="#" role="button">Editar</a></th>                                   
+                            <th>curp</th>
+                            <th>Acciones</th>
                         </thead>
-                        <tbody> 
-                          
+                        <tbody>
+
                         </tbody>
                     </table>
                 </div>
@@ -44,3 +44,10 @@
 
 
 @endsection
+
+@push('scripts')
+<script>
+    window.CSRF_TOKEN = '{{ csrf_token() }}';
+</script>
+<script src="{{ asset('js/administrador/index.js') }}" defer></script>
+@endpush

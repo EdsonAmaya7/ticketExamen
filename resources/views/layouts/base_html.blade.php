@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="{{ asset('lib/bootstrap5/css/bootstrap.min.css') }}">
 
     {{-- DATATABLES --}}
-    <link rel="stylesheet" href="{{ asset('lib/dataTables/datatables.bootstrap5.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('lib/dataTables/responsive.datatables.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('lib/dataTables/datatables.bootstrap5.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/dataTables/responsive.datatables.min.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
 
-
+    {{-- directiva para las rutas de ziggy --}}
+    @routes
+    {{-- swal alert libreria --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- ESTILOS PROPIOS --}}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -34,7 +37,7 @@
         {{-- @yield('footer') --}}
     </footer>
 </body>
-
+@stack("scripts")
 {{-- BOOSTRAP 5 JS --}}
 <script src="{{ asset('lib/bootstrap5/js/bootstrap.bundle.min.js') }}"></script>
 
@@ -50,5 +53,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
     integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 
 </html>

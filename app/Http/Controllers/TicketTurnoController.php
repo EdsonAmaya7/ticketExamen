@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ticketRequest;
+use App\Models\ticekts;
 use App\Models\TicketTurno;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables as DataTablesDataTables;
+// use Yajra\DataTables\Facades\DataTables;
 
 class TicketTurnoController extends Controller
 {
@@ -55,9 +59,12 @@ class TicketTurnoController extends Controller
      * @param  \App\Models\TicketTurno  $ticketTurno
      * @return \Illuminate\Http\Response
      */
-    public function edit(TicketTurno $ticketTurno)
+    public function edit(int $id)
     {
-        //
+        // dd($id);
+        $ticket = ticekts::findOrFail($id);
+        // dd($ticket);
+        return view('formularioTicket.edit', compact("ticket"));
     }
 
     /**
@@ -67,9 +74,17 @@ class TicketTurnoController extends Controller
      * @param  \App\Models\TicketTurno  $ticketTurno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TicketTurno $ticketTurno)
+    public function update(ticketRequest $request, int $id)
     {
         //
+        // dd($request->all());
+        $ticket = ticekts::findOrFail($id);
+        $validated = $request->validated();
+
+        $ticket->fill($validated);
+        $ticket->save();
+
+        return redirect()->route('admin.index');
     }
 
     /**
@@ -78,8 +93,16 @@ class TicketTurnoController extends Controller
      * @param  \App\Models\TicketTurno  $ticketTurno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TicketTurno $ticketTurno)
+    public function destroy(int $id)
     {
         //
+        $ticket = ticekts::find($id)->delete();
+        return response()->json($ticket);
+    }
+
+    public function getTickets()
+    {
+        $data = ticekts::all();
+        return  DataTables()->of($data)->make(true);
     }
 }
