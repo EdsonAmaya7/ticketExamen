@@ -37,9 +37,11 @@ class TicketTurnoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ticketRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $ticket = TicketTurno::create($validated);
+        return response()->json($ticket);
     }
 
     /**
@@ -104,5 +106,11 @@ class TicketTurnoController extends Controller
     {
         $data = ticekts::all();
         return  DataTables()->of($data)->make(true);
+    }
+
+
+    public function getMunicipio()
+    {
+        
     }
 }
