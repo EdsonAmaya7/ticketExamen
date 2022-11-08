@@ -66,14 +66,14 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="">¿Nivel que cursa o cursará?</label>
-                    <select name="nivelIngresar" id="nivelIngresar" class="form-select"
-                    value="{{ old('nivelIngresar',optional($ticket ?? null)->nivelIngresar) }}">
-                        <option @isset($ticket) {{ $ticket->nivelIngresar == "Preescolar" ? 'selected' : '' }} @endisset
-                        value="Preescolar">Preescolar</option>
-                        <option @isset($ticket) {{ $ticket->nivelIngresar == "Primaria" ? 'selected' : '' }} @endisset
-                        value="Primaria">Primaria</option>
-                        <option @isset($ticket) {{ $ticket->nivelIngresar == "Secundaria" ? 'selected' : '' }} @endisset
-                        value="Secundaria">Secundaria</option>
+                    <select name="nivelIngresar_id" id="nivelIngresar_id" class="form-select"
+                    value="{{ old('nivelIngresar_id',optional($ticket ?? null)->nivelIngresar_id) }}">
+                        <option @isset($ticket) {{ $ticket->nivelIngresar_id == "Preescolar" ? 'selected' : '' }} @endisset
+                        value="1">Preescolar</option>
+                        <option @isset($ticket) {{ $ticket->nivelIngresar_id == "Primaria" ? 'selected' : '' }} @endisset
+                        value="2">Primaria</option>
+                        <option @isset($ticket) {{ $ticket->nivelIngresar_id == "Secundaria" ? 'selected' : '' }} @endisset
+                        value="3">Secundaria</option>
                     </select>
                 </div>
             </div>
@@ -82,8 +82,6 @@
                     <label for="">Municipio donde estudia el alumnos</label>
                     <select name="municipio" id="municipio" class="form-select">
                         <option value="">Seleccione una opción</option>
-                        <option value="1">Saltillo</option>
-                        <option value="2">Parras</option>
                     </select>
                 </div>
             </div>

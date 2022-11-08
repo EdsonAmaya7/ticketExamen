@@ -36,7 +36,7 @@ let tabla_admin_control = $('#adminControl').DataTable({
             render: function (id) {
                 // return id;
                 return `<a href="#" onclick="deleteTicket(${id});"><i class="fas fa-trash" style="color:red"></i></a>
-                 <a href=${ route("ticket.edit",id)} ><i class="fas fa-edit" style="color:#51723c"></i></a>
+                 <a href=${route("ticket.edit", id)} ><i class="fas fa-edit" style="color:#51723c"></i></a>
                   `;
             }
         }

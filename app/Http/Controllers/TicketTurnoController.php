@@ -111,7 +111,24 @@ class TicketTurnoController extends Controller
 
     public function getTickets()
     {
-        $data = ticekts::all();
+        $data = ticekts::select(
+            'ticekts.id',
+            'asunto',
+            'curp',
+            'folio',
+            'nombreTramite',
+            'nombre',
+            'paterno',
+            'materno',
+            'nivelIngresar',
+            'municipio',
+            'asunto',
+            'status'
+        )
+            ->join('niveles', 'niveles.id', '=', 'ticekts.nivelIngresar_id')
+            ->get();
+
+        // dd($data);
         return  DataTables()->of($data)->make(true);
     }
 
