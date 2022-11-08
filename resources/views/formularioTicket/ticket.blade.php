@@ -7,13 +7,13 @@
 
 @section('content')
 @include('layouts.navigation')
-    <div class="container-fluid p-5">
-        <div class="card carta" style=" padding:5%; opacity: .9">
-            <form id="formulario" style="margin: 2rem 2rem 2rem 2rem">
+    <div class="container-fluid padpagina">
+        <div class="card carta cartapadding" >
+            <form id="formulario padding1">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h1 class="titulochido">Generar Ticket de turno</h1>
+                        <h1 class="titulochido admintitulo2">Generar Ticket de turno</h1>
                     </div>
                 </div>
                 <div class="row mt-2">

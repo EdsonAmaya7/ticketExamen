@@ -2,6 +2,7 @@ body {
     background: rgb(42, 0, 255);
     background: linear-gradient(90deg, rgba(42, 0, 255, 1) 0%, rgba(220, 223, 236, 1) 100%);
     overflow-x: hidden;
+    transition: 3s;
 
 }
 
@@ -14,12 +15,13 @@ html {
     -moz-box-shadow: 20px 4px 51px -3px rgba(0, 0, 0, 0.66);
     box-shadow: 20px 4px 51px -3px rgba(0, 0, 0, 0.66);
     background: whitesmoke;
-    color:black;
-}
-
-label{
     color: black;
 }
+
+label {
+    color: black;
+}
+
 h1 {
     color: black;
     font-weight: bold;
@@ -29,11 +31,9 @@ input {
     color: #000;
 }
 
-.titulochido{
+.titulochido {
     font-size: 22px;
 }
-
-
 
 .boton {
     margin: 0;
@@ -48,4 +48,93 @@ input {
     background-color: rgba(17, 8, 164, 1);
     color: white;
     /* transform: rotate(0.9turn); */
+}
+
+.padding1 {
+    margin: 2rem 2rem 2rem 2rem;
+}
+
+.cartapadding {
+    padding: 5%;
+    opacity: .9
+}
+
+.padpagina {
+    padding: 50px;
+}
+
+.admintitulo {
+    font-size: 30px;
+    color: white;
+    font-family: sans-serif;
+    text-shadow: 2px 0 #000, -2px 0 #000, 0 2px #000, 0 -2px #000,
+        1px 1px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000;
+}
+
+.admintitulo2 {
+    font-size: 30px;
+    color: greenyellow;
+    font-family: sans-serif;
+    text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+        1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+}
+
+@media (max-width:980px) {
+
+    .titulochido {
+        font-size: 20px;
+    }
+
+    .cartapadding {
+        padding: 3%;
+        opacity: .9
+    }
+
+    .padpagina {
+        padding: 30px;
+    }
+
+    .admintitulo,
+    .admintitulo2 {
+        font-size: 25px;
+    }
+
+    body {
+        background: rgb(191,80,255);
+        background: linear-gradient(90deg, rgba(191,80,255,1) 0%, rgba(255,94,94,1) 100%);
+
+    }
+}
+
+
+@media (max-width:480px) {
+
+    .titulochido {
+        font-size: 18px;
+    }
+
+    .padding1 {
+        margin: 0px;
+    }
+
+    .cartapadding {
+        padding: 1%;
+        opacity: .9
+    }
+
+    .padpagina {
+        padding: 10px;
+    }
+
+    .admintitulo,
+    .admintitulo2 {
+        font-size: 20px;
+        word-wrap: break-word;
+    }
+
+    body {
+        background: rgb(98, 255, 80);
+        background: linear-gradient(90deg, rgba(98, 255, 80, 1) 0%, rgba(0, 255, 226, 1) 100%);
+
+    }
 }

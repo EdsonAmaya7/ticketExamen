@@ -8,7 +8,7 @@
 @section('content')
     <div>
         @include('layouts.navigation')
-        <h1 class="text-center m-5">CATÁLOGO DE NIVELES</h1>
+        <h1 class="text-center m-5 admintitulo">CATÁLOGO DE NIVELES</h1>
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
