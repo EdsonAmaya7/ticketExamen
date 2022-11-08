@@ -7,9 +7,8 @@ Editar Ticket
 @section('content')
 
 <div>
-    <h2 style="color:white; text-align:center">Pantalla de Administradores para editar ticket</h2>
-    <a href="{{ route('admin.index')}}" class="btn boton-recicladora pt-5 ms-2 p-2 mt-4 ">
-        <i class="fas fa-angle-double-left" style="color:red"></i>Regresar</a>
+    @include("layouts.navigation")
+
     <form action="{{ route('ticket.update',$ticket->id) }}" method="POST" novalidate>
         @csrf
         @method("PUT")
@@ -22,3 +21,19 @@ Editar Ticket
 </div>
 
 @endsection
+
+@push("scripts")
+<script>
+    // Consumo de la api de municipios
+    $.ajax({
+        url: 'https://api.datos.gob.mx/v1/condiciones-atmosfericas',
+        success: (data) => {
+            data.results.forEach(municipio => {
+                document.getElementById(
+                    "municipio"
+                ).innerHTML += `<option value="${municipio["name"]}">${municipio["name"]}</option>">`;
+            });
+        }
+    })
+</script>
+@endpush

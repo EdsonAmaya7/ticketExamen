@@ -4,6 +4,8 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\TicketTurnoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\NivelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,7 +25,13 @@ Route::get('/dashboard', function () {
 ])->name('dashboard');
 
 //al ultimo agregar el middleware de auth y verified a la ruta admin
-Route::get('/admin', [adminController::class, "index"])->name('admin.index');
+Route::get('/admin', [adminController::class, "index"])->middleware([
+    'auth', 'verified'
+])->name('admin.index');
+
+Route::get('/niveles', [NivelController::class, "index"])->middleware([
+    'auth', 'verified'
+])->name('niveles.index');
 
 //ruta que trae todos los tickets de la bd
 Route::get('/getTickets', [TicketTurnoController::class, 'getTickets'])->name('getTickets');
@@ -50,6 +58,29 @@ Route::get('ticketFolioCurp/{folio}/{curp}', [TicketTurnoController::class, 'dat
 // Vista de editar ticket del lado del usuario
 Route::get('vistaTicketEditarUsuario', [TicketTurnoController::class, 'viewEditarTicketUsuario'])->name('vistaTicketEditarUsuario');
 
+
+//NIVELES
+
+//ruta que trae todos los LVL de la bd
+Route::get('/getNiveles', [NivelController::class, 'getNiveles'])->name('getNiveles');
+Route::get('/nivelCreate', [NivelController::class, 'create'])->name('niveles.create');
+
+//ruta eliminar LVL
+Route::delete('/niveles/{id}', [NivelController::class, 'destroy'])->name('niveles.destroy');
+//vista para editar LVL
+Route::get('/niveles/{id}/edit', [NivelController::class, 'edit'])->name('niveles.edit');
+//ruta actualizar LVL
+Route::put('/niveles/{id}', [NivelController::class, 'update'])->name('niveles.update');
+
+
+//NIVELES
+
+
+
+Route::get('/graficas',[TicketTurnoController::class,'graficas'])
+->middleware([
+    'auth', 'verified'
+])->name('ticket.graficas');
 
 Route::resources([
     'ticketTurno' => TicketTurnoController::class

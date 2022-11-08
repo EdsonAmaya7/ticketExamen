@@ -11,16 +11,16 @@ class TicketTurno extends Model
     protected $table = "ticekts";
     protected $primaryKey = "id";
     protected $guarded = [];
-    protected $fillable = [
-        'folio',
-        'nombreTramite',
-        'nombre',
-        'paterno',
-        'materno',
-        'nivelIngresar',
-        'municipio',
-        'asunto',
-        'status',
-        'curp'
-    ];
+    // protected $fillable = [
+    //     'folio',
+    //     'nombreTramite',
+    //     'nombre',
+    //     'paterno',
+    //     'materno',
+    //     'nivelIngresar',
+    //     'municipio',
+    //     'asunto',
+    //     'status',
+    //     'curp'
+    // ];
 }
