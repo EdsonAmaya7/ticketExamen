@@ -6,6 +6,12 @@ body {
         rgba(9, 9, 121, 1) 72%,
         rgba(0, 212, 255, 1) 100%
     );
+    overflow-x: hidden;
+
+}
+
+html{
+    overflow-x: hidden;
 }
 
 .carta {
@@ -25,6 +31,12 @@ label,
 h1 {
     color: white;
 }
+
+input{
+    color:#000;
+}
+
+
 
 .boton {
     margin: 0;

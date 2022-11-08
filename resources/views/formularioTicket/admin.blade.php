@@ -29,11 +29,11 @@ Ticket de Turno
                             <th>Municipio</th>
                             <th>Asunto</th>
                             <th>Status</th>
-                            <th>curp</th>
+                            <th>Curp</th>
                             <th>Acciones</th>
                         </thead>
                         <tbody>
-
+                        
                         </tbody>
                     </table>
                 </div>

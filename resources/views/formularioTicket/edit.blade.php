@@ -7,7 +7,7 @@ Editar Ticket
 @section('content')
 
 <div>
-    <h2>Editar Ticket</h2>
+    <h2 style="color:white">Editar Ticket</h2>
     <a href="{{ route('admin.index')}}" class="btn boton-recicladora pt-5 ms-2 p-2 mt-4 ">
         <i class="fas fa-angle-double-left"></i></a>
     <form action="{{ route('ticket.update',$ticket->id) }}" method="POST" novalidate>
