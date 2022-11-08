@@ -9,7 +9,7 @@
 @include('layouts.navigation')
     <div class="container-fluid padpagina">
         <div class="card carta cartapadding" >
-            <form id="formulario padding1">
+            <form id="formulario">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 text-center">
