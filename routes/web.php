@@ -4,6 +4,8 @@ use App\Http\Controllers\adminController;
 use App\Http\Controllers\TicketTurnoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\NivelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +29,10 @@ Route::get('/admin', [adminController::class, "index"])->middleware([
     'auth', 'verified'
 ])->name('admin.index');
 
+Route::get('/niveles', [NivelController::class, "index"])->middleware([
+    'auth', 'verified'
+])->name('niveles.index');
+
 //ruta que trae todos los tickets de la bd
 Route::get('/getTickets', [TicketTurnoController::class, 'getTickets'])->name('getTickets');
 //ruta eliminar tickets
@@ -43,6 +49,25 @@ Route::get('getFolioByMunicipio/{municipio}', [TicketTurnoController::class, 'ge
 
 // Ruta para generar pdf Ticket
 Route::get("generarTicket/{id}", [TicketTurnoController::class, 'generarTicket'])->name('generarTicket');
+
+
+//NIVELES
+
+//ruta que trae todos los LVL de la bd
+Route::get('/getNiveles', [NivelController::class, 'getNiveles'])->name('getNiveles');
+Route::get('/nivelCreate', [NivelController::class, 'create'])->name('niveles.create');
+
+//ruta eliminar LVL
+Route::delete('/niveles/{id}', [NivelController::class, 'destroy'])->name('niveles.destroy');
+//vista para editar LVL
+Route::get('/niveles/{id}/edit', [NivelController::class, 'edit'])->name('niveles.edit');
+//ruta actualizar LVL
+Route::put('/niveles/{id}', [NivelController::class, 'update'])->name('niveles.update');
+
+
+//NIVELES
+
+
 
 Route::get('/graficas',[TicketTurnoController::class,'graficas'])
 ->middleware([
