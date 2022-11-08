@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    @include('modal.modal')
+
     {{-- BOOSTRAP 5 --}}
     <link rel="stylesheet" href="{{ asset('lib/bootstrap5/css/bootstrap.min.css') }}">
 
@@ -43,7 +45,7 @@
         {{-- @yield('footer') --}}
     </footer>
 </body>
-@stack("scripts")
+@stack('scripts')
 {{-- BOOSTRAP 5 JS --}}
 <script src="{{ asset('lib/bootstrap5/js/bootstrap.bundle.min.js') }}"></script>
 

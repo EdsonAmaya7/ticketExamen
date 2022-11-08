@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\nivelesRequest;
+use App\Http\Requests\NivelRequest;
 use App\Models\nivel;
 use Illuminate\Http\Request;
 
@@ -16,7 +16,6 @@ class NivelController extends Controller
     public function index()
     {
         return view('formularioTicket.niveles');
-        
     }
 
     /**
@@ -27,7 +26,6 @@ class NivelController extends Controller
     public function create()
     {
         //
-        return view("cNiveles.create");
     }
 
     /**
@@ -36,11 +34,11 @@ class NivelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(nivelesRequest $request)
+    public function store(NivelRequest $request)
     {
         $validated = $request->validated();
-        $ticket = nivel::create($validated);
-        return response()->json($ticket);
+        $nivel = nivel::create($validated);
+        return response()->json($nivel);
     }
 
     /**
@@ -62,10 +60,6 @@ class NivelController extends Controller
      */
     public function edit(int $id)
     {
-        // dd($id);
-        $ticket = nivel::findOrFail($id);
-        // dd($ticket);
-        return view('formularioTicket.edit', compact("ticket"));
     }
 
     /**
@@ -75,9 +69,12 @@ class NivelController extends Controller
      * @param  \App\Models\nivel  $nivel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, nivel $nivel)
+    public function update(Request $request, int $id)
     {
-        //
+        $nivel = nivel::where('id', $id)->first();
+        $nivel->fill($request->all());
+        $nivel->save();
+        return response()->json($nivel);
     }
 
     /**
@@ -86,8 +83,24 @@ class NivelController extends Controller
      * @param  \App\Models\nivel  $nivel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(nivel $nivel)
+    public function destroy(int $id)
     {
-        //
+        $nivel = nivel::where('id', $id);
+        $nivel->delete();
+        return response()->json($nivel);
+    }
+
+    // Metodo para traer todos los niveles
+    public function getNiveles()
+    {
+        $data = nivel::all();
+        return Datatables()->of($data)->make(true);
+    }
+
+    // Metodo que trae los niveles segun el id
+    public function getNivelById($id)
+    {
+        $data = nivel::where('id', $id)->first();
+        return response()->json($data->nivelIngresar);
     }
 }

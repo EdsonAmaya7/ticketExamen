@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class nivel extends Model
 {
     use HasFactory;
+    protected $table = 'niveles';
     protected $guarded = [];
 
 }
-
-?>

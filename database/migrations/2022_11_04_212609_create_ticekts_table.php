@@ -15,14 +15,15 @@ class CreateTicektsTable extends Migration
     {
         Schema::create('ticekts', function (Blueprint $table) {
             $table->id();
-            
+
             $table->string('folio');
             $table->string('nombreTramite');
             $table->string('nombre');
             $table->string('paterno');
             $table->string('materno');
 
-            $table->string('nivelIngresar');
+            $table->unsignedBigInteger('nivelIngresar_id');
+            $table->foreign('nivelIngresar_id')->references('id')->on('niveles');
             $table->string('municipio');
             $table->string('asunto');
 

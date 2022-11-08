@@ -61,29 +61,21 @@ Route::get('vistaTicketEditarUsuario', [TicketTurnoController::class, 'viewEdita
 
 //NIVELES
 
-//ruta que trae todos los LVL de la bd
-Route::get('/getNiveles', [NivelController::class, 'getNiveles'])->name('getNiveles');
+//ruta que trae todos los niveles de la bd
+Route::get('getNiveles', [NivelController::class, 'getNiveles'])->name('getNiveles');
 Route::get('/nivelCreate', [NivelController::class, 'create'])->name('niveles.create');
-
-//ruta eliminar LVL
-Route::delete('/niveles/{id}', [NivelController::class, 'destroy'])->name('niveles.destroy');
-//vista para editar LVL
-Route::get('/niveles/{id}/edit', [NivelController::class, 'edit'])->name('niveles.edit');
-//ruta actualizar LVL
-Route::put('/niveles/{id}', [NivelController::class, 'update'])->name('niveles.update');
-
-
-//NIVELES
+Route::get('getNivelById/{id}', [NivelController::class, 'getNivelById'])->name('nivelById');
 
 
 
-Route::get('/graficas',[TicketTurnoController::class,'graficas'])
-->middleware([
-    'auth', 'verified'
-])->name('ticket.graficas');
+Route::get('/graficas', [TicketTurnoController::class, 'graficas'])
+    ->middleware([
+        'auth', 'verified'
+    ])->name('ticket.graficas');
 
 Route::resources([
-    'ticketTurno' => TicketTurnoController::class
+    'ticketTurno' => TicketTurnoController::class,
+    'niveles' => NivelController::class,
 ]);
 
 
