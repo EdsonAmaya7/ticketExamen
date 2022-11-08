@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    {{-- @include('layouts.navigation') --}}
+@include('layouts.navigation')
     <div class="container-fluid p-5">
         <div class="card carta" style=" padding:5%; opacity: .9">
             <form id="formulario" style="margin: 2rem 2rem 2rem 2rem">
