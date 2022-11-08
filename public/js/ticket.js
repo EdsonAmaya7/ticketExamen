@@ -78,6 +78,20 @@ function asignaFolio() {
 
 // Consumo de la api de municipios
 $.ajax({
+    type: 'GET',
+    url: route('nivelesSelect'),
+    success: (data) => {
+        data.forEach(nivel => {
+            document.getElementById(
+                "nivelIngresar_id"
+            ).innerHTML += `<option value="${nivel["id"]}">${nivel["nivelIngresar"]}</option>">`;
+        });
+    }
+})
+
+
+// Consumo de la api de municipios
+$.ajax({
     url: 'https://api.datos.gob.mx/v1/condiciones-atmosfericas',
     success: (data) => {
         data.results.forEach(municipio => {

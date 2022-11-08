@@ -69,11 +69,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">¿Nivel que cursa o cursará?</label>
-                            <select name="nivelIngresar" id="nivelIngresar" class="form-select">
+                            <select name="nivelIngresar_id" id="nivelIngresar_id" class="form-select">
                                 <option value="">Seleccione una opción</option>
-                                <option value="Preescolar">Preescolar</option>
-                                <option value="Primaria">Primaria</option>
-                                <option value="Secundaria">Secundaria</option>
                             </select>
                         </div>
                     </div>
@@ -88,15 +85,9 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Asunto que va a tratar</label>
-                            <select name="asunto" id="asunto" class="form-select">
-                                <option value="">Seleccione una opción</option>
-                                <option value="Nuevo Ingreso">Nuevo Ingreso</option>
-                                <option value="Cambio de domicilio">Cambio de domicilio</option>
-                                <option value="Cambio de escuela">Cambio de escuela</option>
-                            </select>
+                            <input name="asunto" id="asunto" class="form-control">
                         </div>
                     </div>
-                </div>
             </form>
             <div class="row mt-3">
                 <div class="col-md-12 text-center mb-3">

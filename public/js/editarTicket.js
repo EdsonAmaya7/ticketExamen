@@ -1,6 +1,7 @@
 async function datos() {
     let folio = document.getElementById('folio').value;
     let curp = document.getElementById('curp').value;
+    var expresion = /^([A-Z][AEIOUX][A-Z]{2}\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])[HM](?:AS|B[CS]|C[CLMSH]|D[FG]|G[TR]|HG|JC|M[CNS]|N[ETL]|OC|PL|Q[TR]|S[PLR]|T[CSL]|VZ|YN|ZS)[B-DF-HJ-NP-TV-Z]{3}[A-Z\d])(\d)$/;
 
     const url = route("datosTicketUsuarios", [folio, curp])
 
@@ -17,11 +18,13 @@ async function datos() {
         // informacion traida en json
         const res = await req.json();
 
+        console.log(res);
+
         document.getElementById('nombreTramite').value = res[0]['nombreTramite']
         document.getElementById('nombre').value = res[0]['nombre']
         document.getElementById('paterno').value = res[0]['paterno']
         document.getElementById('materno').value = res[0]['materno']
-        document.getElementById('nivelIngresar').value = res[0]['nivelIngresar']
+        document.getElementById('nivelIngresar_id').value = res[0]['nivelIngresar_id']
         document.getElementById('municipio').value = res[0]['municipio']
         document.getElementById('asunto').value = res[0]['asunto']
         document.getElementById('id').value = res[0]['id']
@@ -67,6 +70,20 @@ async function datos() {
         }
     }
 }
+
+// Consumo de la api de municipios
+$.ajax({
+    type: 'GET',
+    url: route('nivelesSelect'),
+    success: (data) => {
+        data.forEach(nivel => {
+            document.getElementById(
+                "nivelIngresar_id"
+            ).innerHTML += `<option value="${nivel["id"]}">${nivel["nivelIngresar"]}</option>">`;
+        });
+    }
+})
+
 // Consumo de la api de municipios
 $.ajax({
     url: 'https://api.datos.gob.mx/v1/condiciones-atmosfericas',

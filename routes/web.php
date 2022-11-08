@@ -59,12 +59,14 @@ Route::get('ticketFolioCurp/{folio}/{curp}', [TicketTurnoController::class, 'dat
 Route::get('vistaTicketEditarUsuario', [TicketTurnoController::class, 'viewEditarTicketUsuario'])->name('vistaTicketEditarUsuario');
 
 
+
 //NIVELES
 
 //ruta que trae todos los niveles de la bd
 Route::get('getNiveles', [NivelController::class, 'getNiveles'])->name('getNiveles');
 Route::get('/nivelCreate', [NivelController::class, 'create'])->name('niveles.create');
 Route::get('getNivelById/{id}', [NivelController::class, 'getNivelById'])->name('nivelById');
+Route::get('nivelesSelect', [NivelController::class, 'genNivelesSelect'])->name('nivelesSelect');
 
 
 

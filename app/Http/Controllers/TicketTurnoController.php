@@ -129,7 +129,8 @@ class TicketTurnoController extends Controller
     // Metodo que trae los datos para generar el ticket
     public function generarTicket($id)
     {
-        $data = ticekts::find($id);
+        $data = ticekts::join('niveles', 'niveles.id', '=', 'ticekts.nivelIngresar_id')
+            ->find($id);
 
         // Nombre del Archivo
         $nombreArchivo = 'Ticket-' . $data['folio'] . '-' . $data['nombreTramite'] . '.pdf';
@@ -189,6 +190,7 @@ class TicketTurnoController extends Controller
         return response()->json($data);
     }
 
+    // Metodo para traer la vista de editar Ticket usuario
     public function viewEditarTicketUsuario()
     {
         return view('formularioTicket.editarTicketUsuario');

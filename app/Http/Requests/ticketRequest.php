@@ -29,7 +29,7 @@ class ticketRequest extends FormRequest
             'nombre' => 'required',
             'paterno' => 'required',
             'materno' => 'required',
-            'nivelIngresar' => 'required',
+            'nivelIngresar_id' => 'required',
             'municipio' => 'required',
             'asunto' => 'required',
             'status' => 'required',

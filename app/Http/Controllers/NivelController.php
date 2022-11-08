@@ -103,4 +103,11 @@ class NivelController extends Controller
         $data = nivel::where('id', $id)->first();
         return response()->json($data->nivelIngresar);
     }
+
+    // Funcion para traerme los nivles en el select
+    public function genNivelesSelect()
+    {
+        $data = nivel::all();
+        return response()->json($data);
+    }
 }
