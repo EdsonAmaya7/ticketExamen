@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ticketRequest;
 use App\Models\ticekts;
 use App\Models\TicketTurno;
 use Illuminate\Http\Request;
-use Yajra\DataTables\DataTables as DataTablesDataTables;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ticketRequest;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 // use Yajra\DataTables\Facades\DataTables;
 
 class TicketTurnoController extends Controller
@@ -108,10 +110,47 @@ class TicketTurnoController extends Controller
         return  DataTables()->of($data)->make(true);
     }
 
-
-    public function getMunicipio()
+    // Obtener el folio de cada municipio
+    public function getFolioSegunMunicipio($municipio)
     {
-        
+        $data = DB::select("
+        SELECT COUNT(*) numeroFolio
+        FROM ticekts
+        WHERE municipio = '$municipio'");
+
+        return response()->json($data);
+    }
+
+    // Metodo que trae los datos para generar el ticket
+    public function generarTicket($id)
+    {
+        $data = ticekts::where('id', $id)->get();
+
+        // Nombre del Archivo
+        $nombreArchivo = 'Ticket-' . $data[0]['folio'] . '-' . $data[0]['nombreTramite'] . '.pdf';
+
+        $qr = QrCode::generate("Hola");
+
+        // dd($qr);
+        // $qrcode = new Generator;
+        // $qrcode->size(500)->generate($data[0]['curp']);
+
+        // dd($qrcode);
+
+        $dompdf = Pdf::loadView("pdfTicket", [
+            "folio" => $data[0]['folio'],
+            "nombreCompleto" => $data[0]['nombreTramite'],
+            "curp" => $data[0]['curp'],
+            "nombre" => $data[0]['nombre'],
+            "materno" => $data[0]['materno'],
+            "paterno" => $data[0]['paterno'],
+            "nivel" => $data[0]['nivelIngresar'],
+            "municipio" => $data[0]['municipio'],
+            "asunto" => $data[0]['asunto'],
+            "qr" => $qr
+        ])->save("../public/docs/{$nombreArchivo}");
+
+        return $dompdf->download($nombreArchivo);
     }
 
     public function graficas()

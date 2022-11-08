@@ -20,7 +20,8 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Folio:</label>
-                            <input type="text" placeholder="Folio" class="form-control" id="folio" name="folio">
+                            <input type="text" placeholder="Folio" class="form-control" id="folio" name="folio"
+                                readonly>
                         </div>
                     </div>
                 </div>
@@ -67,16 +68,16 @@
                             <label for="">¿Nivel que cursa o cursará?</label>
                             <select name="nivelIngresar" id="nivelIngresar" class="form-select">
                                 <option value="">Seleccione una opción</option>
-                                <option value="1">Preescolar</option>
-                                <option value="2">Primaria</option>
-                                <option value="3">Secundaria</option>
+                                <option value="Preescolar">Preescolar</option>
+                                <option value="Primaria">Primaria</option>
+                                <option value="Secundaria">Secundaria</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Municipio donde estudia el alumnos</label>
-                            <select name="municipio" id="municipio" class="form-select">
+                            <select name="municipio" id="municipio" class="form-select" onchange="asignaFolio()">
                                 <option value="">Seleccione una opción</option>
                             </select>
                         </div>
@@ -86,9 +87,9 @@
                             <label for="">Asunto que va a tratar</label>
                             <select name="asunto" id="asunto" class="form-select">
                                 <option value="">Seleccione una opción</option>
-                                <option value="1">Asunto 1</option>
-                                <option value="2">Asunto 2</option>
-                                <option value="3">Asunto 3</option>
+                                <option value="Nuevo Ingreso">Nuevo Ingreso</option>
+                                <option value="Cambio de domicilio">Cambio de domicilio</option>
+                                <option value="Cambio de escuela">Cambio de escuela</option>
                             </select>
                         </div>
                     </div>

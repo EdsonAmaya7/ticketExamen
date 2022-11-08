@@ -38,6 +38,12 @@ Route::put('/ticket/{id}', [TicketTurnoController::class, 'update'])->name('tick
 
 Route::get('viewTicketTurno', [TicketTurnoController::class, 'index'])->name('viewTicketTurno');
 
+// Ruta para el obtener el folio segun el municipio
+Route::get('getFolioByMunicipio/{municipio}', [TicketTurnoController::class, 'getFolioSegunMunicipio'])->name('folioMunicipio');
+
+// Ruta para generar pdf Ticket
+Route::get("generarTicket/{id}", [TicketTurnoController::class, 'generarTicket'])->name('generarTicket');
+
 Route::get('/graficas',[TicketTurnoController::class,'graficas'])->name('ticket.graficas');
 
 Route::resources([
