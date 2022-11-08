@@ -8,14 +8,17 @@
     <title>Ticket de Turno</title>
 </head>
 
-<body style="background-color:whitesmoke; font-family:sans-serif; border: solid;border-width:1px; border-radius:5px; border-color:darkblue">
+<body
+    style="background-color:whitesmoke; font-family:sans-serif; border: solid;border-width:1px; border-radius:5px; border-color:darkblue">
     <div style="padding:20px">
         <table style=" width: 100%">
             <thead>
                 <tr>
                     <th colspan="5">
                         <h1 style="font-weight: bold; font-family:sans-serif;color:black;">Ticket de Turno</h1>
-                        <h4 style="font-weight: bold; font-family:sans-serif;">Registro exitoso {{ $fecha }}</h4>
+                        <h4 style="font-weight: bold; font-family:sans-serif;">Registro exitoso el {{ $dia }}
+                            {{ $mesNombre }} del {{ $anio }} a las
+                            {{ $horas }}</h4>
                     </th>
                 </tr>
             </thead>
@@ -70,7 +73,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <h3 colspan="2" style="font-weight:bold; line-height:1px">Nivel que cursara:</h3>
+                        <h3 colspan="2" style="font-weight:bold; line-height:1px">Nivel que cursará:</h3>
                     </td>
                     <td>
                         <h3 colspan="2" style="color:darkblue; line-height:1px">{{ $nivel }}</h3>
@@ -95,7 +98,7 @@
             </tbody>
         </table>
         <div>
-            {{-- {{ $qr }} --}}
+            <img src="data:image/svg+xml;base64,{{ base64_encode($qr) }}" alt="">
         </div>
     </div>
 

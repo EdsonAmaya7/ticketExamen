@@ -32,7 +32,7 @@ Route::delete('/ticket/{id}', [TicketTurnoController::class, 'destroy'])->name('
 //vista para editar tickets
 Route::get('/ticket/{id}/edit', [TicketTurnoController::class, 'edit'])->name('ticket.edit');
 //ruta actualizar tickets
-Route::put('/ticket/{id}', [TicketTurnoController::class, 'update'])->name('ticket.update');
+Route::put('/ticket/{id}/{bandera?}', [TicketTurnoController::class, 'update'])->name('ticket.update');
 
 Route::get('viewTicketTurno', [TicketTurnoController::class, 'index'])->name('viewTicketTurno');
 
@@ -42,7 +42,14 @@ Route::get('getFolioByMunicipio/{municipio}', [TicketTurnoController::class, 'ge
 // Ruta para generar pdf Ticket
 Route::get("generarTicket/{id}", [TicketTurnoController::class, 'generarTicket'])->name('generarTicket');
 
-Route::get('/graficas',[TicketTurnoController::class,'graficas'])->name('ticket.graficas');
+Route::get('/graficas', [TicketTurnoController::class, 'graficas'])->name('ticket.graficas');
+
+// Editar ticket del lado del usuario
+Route::get('ticketFolioCurp/{folio}/{curp}', [TicketTurnoController::class, 'datosTicketUsuarios'])->name('datosTicketUsuarios');
+
+// Vista de editar ticket del lado del usuario
+Route::get('vistaTicketEditarUsuario', [TicketTurnoController::class, 'viewEditarTicketUsuario'])->name('vistaTicketEditarUsuario');
+
 
 Route::resources([
     'ticketTurno' => TicketTurnoController::class

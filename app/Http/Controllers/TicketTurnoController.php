@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ticekts;
 use App\Models\TicketTurno;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ticketRequest;
@@ -78,7 +79,7 @@ class TicketTurnoController extends Controller
      * @param  \App\Models\TicketTurno  $ticketTurno
      * @return \Illuminate\Http\Response
      */
-    public function update(ticketRequest $request, int $id)
+    public function update(ticketRequest $request, int $id, int $bandera = 0)
     {
         //
         // dd($request->all());
@@ -88,7 +89,11 @@ class TicketTurnoController extends Controller
         $ticket->fill($validated);
         $ticket->save();
 
-        return redirect()->route('admin.index');
+        if ($bandera == 1) {
+            return response()->json($ticket);
+        } else {
+            return redirect()->route('admin.index');
+        }
     }
 
     /**
@@ -124,33 +129,42 @@ class TicketTurnoController extends Controller
     // Metodo que trae los datos para generar el ticket
     public function generarTicket($id)
     {
-        $data = ticekts::where('id', $id)->get();
+        $data = ticekts::find($id);
 
         // Nombre del Archivo
-        $nombreArchivo = 'Ticket-' . $data[0]['folio'] . '-' . $data[0]['nombreTramite'] . '.pdf';
+        $nombreArchivo = 'Ticket-' . $data['folio'] . '-' . $data['nombreTramite'] . '.pdf';
 
-        $qr = QrCode::generate("Hola");
+        $qr = QrCode::size(150)->generate("http://192.168.88.185/examenParcial2/public/generarTicket/" . $data['id']);
 
         // dd($qr);
         // $qrcode = new Generator;
-        // $qrcode->size(500)->generate($data[0]['curp']);
+        // $qrcode->size(500)->generate($data['curp']);
 
         // dd($qrcode);
 
         date_default_timezone_set('America/Mexico_City');
-        $fecha = date("F j, Y, g:i a");   
+        $fecha = Carbon::now();
+        $dia = $fecha->day;
+        // $mes = $fecha->locale();
+        $mesNombre = ucfirst($fecha->monthName);
+        $anio = $fecha->year;
+        $horas = $fecha->format('h:i:s');
 
         $dompdf = Pdf::loadView("pdfTicket", [
             "fecha" => $fecha,
-            "folio" => $data[0]['folio'],
-            "nombreCompleto" => $data[0]['nombreTramite'],
-            "curp" => $data[0]['curp'],
-            "nombre" => $data[0]['nombre'],
-            "materno" => $data[0]['materno'],
-            "paterno" => $data[0]['paterno'],
-            "nivel" => $data[0]['nivelIngresar'],
-            "municipio" => $data[0]['municipio'],
-            "asunto" => $data[0]['asunto'],
+            "folio" => $data['folio'],
+            "nombreCompleto" => $data['nombreTramite'],
+            "curp" => $data['curp'],
+            "nombre" => $data['nombre'],
+            "materno" => $data['materno'],
+            "paterno" => $data['paterno'],
+            "nivel" => $data['nivelIngresar'],
+            "municipio" => $data['municipio'],
+            "asunto" => $data['asunto'],
+            "dia" => $dia,
+            "mesNombre" => $mesNombre,
+            "horas" => $horas,
+            "anio" => $anio,
             "qr" => $qr
         ])->save("../public/docs/{$nombreArchivo}");
 
@@ -165,5 +179,18 @@ class TicketTurnoController extends Controller
     {
         $ticket = ticekts::all('municipio', 'status');
         return view('formularioTicket.graficas', compact('ticket'));
+    }
+
+    // Metodo para editar el ticket
+    public function datosTicketUsuarios($folio, $curp)
+    {
+        $data = ticekts::where("folio", $folio)->where("curp", $curp)->get();
+
+        return response()->json($data);
+    }
+
+    public function viewEditarTicketUsuario()
+    {
+        return view('formularioTicket.editarTicketUsuario');
     }
 }
