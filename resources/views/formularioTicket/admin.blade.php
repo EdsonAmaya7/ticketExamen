@@ -14,8 +14,6 @@ Ticket de Turno
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <a href="" class="d-bloke boton  pt-5 pb-3 mb-5">Agregar</a>
-
 
                 <div class="card-body">
                     <table id="adminControl" style="width:100%;text-align:center">
