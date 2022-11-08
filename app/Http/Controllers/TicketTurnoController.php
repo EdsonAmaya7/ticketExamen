@@ -113,4 +113,11 @@ class TicketTurnoController extends Controller
     {
         
     }
+
+    public function graficas()
+    {
+        $ticket = ticekts::all('municipio','status');
+        return view('formularioTicket.graficas', compact('ticket'));
+    }
+
 }
