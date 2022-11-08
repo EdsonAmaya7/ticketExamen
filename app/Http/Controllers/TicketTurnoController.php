@@ -82,7 +82,6 @@ class TicketTurnoController extends Controller
     public function update(ticketRequest $request, int $id, int $bandera = 0)
     {
         //
-        // dd($request->all());
         $ticket = ticekts::findOrFail($id);
         $validated = $request->validated();
 
@@ -146,13 +145,27 @@ class TicketTurnoController extends Controller
     // Metodo que trae los datos para generar el ticket
     public function generarTicket($id)
     {
-        $data = ticekts::join('niveles', 'niveles.id', '=', 'ticekts.nivelIngresar_id')
+        $data = ticekts::select(
+            'ticekts.id',
+            'asunto',
+            'curp',
+            'folio',
+            'nombreTramite',
+            'nombre',
+            'paterno',
+            'materno',
+            'nivelIngresar',
+            'municipio',
+            'asunto',
+            'status'
+        )
+            ->join('niveles', 'niveles.id', '=', 'ticekts.nivelIngresar_id')
             ->find($id);
 
         // Nombre del Archivo
         $nombreArchivo = 'Ticket-' . $data['folio'] . '-' . $data['nombreTramite'] . '.pdf';
 
-        $qr = QrCode::size(150)->generate("http://192.168.88.185/examenParcial2/public/generarTicket/" . $data['id']);
+        $qr = QrCode::size(150)->generate("http://172.20.10.2/examenParcial2/public/generarTicket/" . $data['id']);
 
         // dd($qr);
         // $qrcode = new Generator;
