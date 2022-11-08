@@ -1,9 +1,9 @@
 <div class="container-fluid mt-5">
-    <div class="card carta" style="width: 50%; margin: 12% 25%; opacity: .9">
+    <div class="card carta" style="width: 100%; padding:35px">
 
         <div class="row">
             <div class="col-md-12 text-center">
-                <h1>Ticket de turno</h1>
+                <h1 class="titulochido">Edita tu Ticket de turno</h1>
             </div>
         </div>
         <div class="row mt-2">

@@ -11,7 +11,7 @@
             <form id="login" style="margin: 2rem 2rem 2rem 2rem">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Login</h1>
+                        <h1>Iniciar sesión</h1>
                     </div>
                 </div>
                 <div class="row mt-3">

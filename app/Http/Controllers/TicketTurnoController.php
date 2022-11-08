@@ -137,7 +137,11 @@ class TicketTurnoController extends Controller
 
         // dd($qrcode);
 
+        date_default_timezone_set('America/Mexico_City');
+        $fecha = date("F j, Y, g:i a");   
+
         $dompdf = Pdf::loadView("pdfTicket", [
+            "fecha" => $fecha,
             "folio" => $data[0]['folio'],
             "nombreCompleto" => $data[0]['nombreTramite'],
             "curp" => $data[0]['curp'],
@@ -150,13 +154,16 @@ class TicketTurnoController extends Controller
             "qr" => $qr
         ])->save("../public/docs/{$nombreArchivo}");
 
-        return $dompdf->download($nombreArchivo);
+
+
+        return $dompdf->stream($nombreArchivo);
+
+        // return $dompdf->download($nombreArchivo);
     }
 
     public function graficas()
     {
-        $ticket = ticekts::all('municipio','status');
+        $ticket = ticekts::all('municipio', 'status');
         return view('formularioTicket.graficas', compact('ticket'));
     }
-
 }

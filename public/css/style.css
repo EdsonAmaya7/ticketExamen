@@ -1,16 +1,11 @@
 body {
-    background: rgb(17, 8, 164);
-    background: linear-gradient(
-        90deg,
-        rgba(17, 8, 164, 1) 59%,
-        rgba(9, 9, 121, 1) 72%,
-        rgba(0, 212, 255, 1) 100%
-    );
+    background: rgb(42, 0, 255);
+    background: linear-gradient(90deg, rgba(42, 0, 255, 1) 0%, rgba(220, 223, 236, 1) 100%);
     overflow-x: hidden;
 
 }
 
-html{
+html {
     overflow-x: hidden;
 }
 
@@ -18,22 +13,24 @@ html{
     -webkit-box-shadow: 20px 4px 51px -3px rgba(0, 0, 0, 0.66);
     -moz-box-shadow: 20px 4px 51px -3px rgba(0, 0, 0, 0.66);
     box-shadow: 20px 4px 51px -3px rgba(0, 0, 0, 0.66);
-    background: rgb(145, 139, 235);
-    background: linear-gradient(
-        90deg,
-        rgba(145, 139, 235, 1) 27%,
-        rgba(246, 242, 204, 0.2735294801514355) 87%
-    );
-    background-image: url("../img/imgFormulario.jpg");
+    background: whitesmoke;
+    color:black;
 }
 
-label,
+label{
+    color: black;
+}
 h1 {
-    color: white;
+    color: black;
+    font-weight: bold;
 }
 
-input{
-    color:#000;
+input {
+    color: #000;
+}
+
+.titulochido{
+    font-size: 22px;
 }
 
 
@@ -48,7 +45,7 @@ input{
 }
 
 .boton-recicladora:hover {
-    background-color:rgba(17, 8, 164, 1);
+    background-color: rgba(17, 8, 164, 1);
     color: white;
     /* transform: rotate(0.9turn); */
 }

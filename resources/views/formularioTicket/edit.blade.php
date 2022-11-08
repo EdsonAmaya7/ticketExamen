@@ -7,16 +7,16 @@ Editar Ticket
 @section('content')
 
 <div>
-    <h2 style="color:white">Editar Ticket</h2>
+    <h2 style="color:white; text-align:center">Pantalla de Administradores para editar ticket</h2>
     <a href="{{ route('admin.index')}}" class="btn boton-recicladora pt-5 ms-2 p-2 mt-4 ">
-        <i class="fas fa-angle-double-left"></i></a>
+        <i class="fas fa-angle-double-left" style="color:red"></i>Regresar</a>
     <form action="{{ route('ticket.update',$ticket->id) }}" method="POST" novalidate>
         @csrf
         @method("PUT")
         @include('formularioTicket.partials.form')
 
-        <div class="d-flex justify-content-end mt-3 mtb-3">
-            <button class="mb-3 boton">Actualizar</button>
+        <div class="d-flex justify-content-center mt-3">
+            <button class="mb-3 boton btn btn-primary" style="color:black; background-color:greenyellow">Actualizar</button>
         </div>
     </form>
 </div>

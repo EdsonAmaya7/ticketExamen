@@ -7,13 +7,13 @@
 
 @section('content')
     {{-- @include('layouts.navigation') --}}
-    <div class="container-fluid mt-5">
-        <div class="card carta" style="width: 50%; margin: 12% 25%; opacity: .9">
+    <div class="container-fluid p-5">
+        <div class="card carta" style=" padding:5%; opacity: .9">
             <form id="formulario" style="margin: 2rem 2rem 2rem 2rem">
                 @csrf
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h1>Ticket de turno</h1>
+                        <h1 class="titulochido">Generar Ticket de turno</h1>
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -97,8 +97,8 @@
             </form>
             <div class="row mt-3">
                 <div class="col-md-12 text-center mb-3">
-                    <button id="generar_ticket" style="border-radius: 5px; width: 15%;" class="btn-primary"
-                        type="button">Generar</button>
+                    <button id="generar_ticket" class="btn btn-primary"
+                        type="button" style="background-color:greenyellow !important; color:black ;">Generar</button>
                 </div>
             </div>
         </div>
