@@ -152,4 +152,11 @@ class TicketTurnoController extends Controller
 
         return $dompdf->download($nombreArchivo);
     }
+
+    public function graficas()
+    {
+        $ticket = ticekts::all('municipio','status');
+        return view('formularioTicket.graficas', compact('ticket'));
+    }
+
 }

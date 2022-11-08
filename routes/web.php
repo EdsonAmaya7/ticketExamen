@@ -44,6 +44,7 @@ Route::get('getFolioByMunicipio/{municipio}', [TicketTurnoController::class, 'ge
 // Ruta para generar pdf Ticket
 Route::get("generarTicket/{id}", [TicketTurnoController::class, 'generarTicket'])->name('generarTicket');
 
+Route::get('/graficas',[TicketTurnoController::class,'graficas'])->name('ticket.graficas');
 
 Route::resources([
     'ticketTurno' => TicketTurnoController::class
