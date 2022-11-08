@@ -90,6 +90,7 @@
             <x-nav-link :href="route('viewTicketTurno')" :active="request()->routeIs('viewTicketTurno')">
                 Ticket
             </x-nav-link>
+            
         </div>
 
         <!-- Responsive Settings Options -->

@@ -21,6 +21,10 @@
                     <x-nav-link :href="route('viewTicketTurno')" :active="request()->routeIs('viewTicketTurno')">
                         Ticket
                     </x-nav-link>
+
+                    <x-nav-link :href="route('ticket.graficas')" :active="request()->routeIs('ticket.graficas')">
+                        Graficas
+                    </x-nav-link>
                     @endauth
                 </div>
                 @guest
@@ -96,6 +100,10 @@
             @auth
             <x-nav-link :href="route('admin.index')" :active="request()->routeIs('admin.index')">
                 Administrar Ticket
+            </x-nav-link>
+
+            <x-nav-link :href="route('ticket.graficas')" :active="request()->routeIs('ticket.graficas')">
+                Graficas
             </x-nav-link>
             @endauth
         </div>

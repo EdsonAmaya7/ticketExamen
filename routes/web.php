@@ -23,7 +23,9 @@ Route::get('/dashboard', function () {
 ])->name('dashboard');
 
 //al ultimo agregar el middleware de auth y verified a la ruta admin
-Route::get('/admin', [adminController::class, "index"])->name('admin.index');
+Route::get('/admin', [adminController::class, "index"])->middleware([
+    'auth', 'verified'
+])->name('admin.index');
 
 //ruta que trae todos los tickets de la bd
 Route::get('/getTickets', [TicketTurnoController::class, 'getTickets'])->name('getTickets');
@@ -42,7 +44,10 @@ Route::get('getFolioByMunicipio/{municipio}', [TicketTurnoController::class, 'ge
 // Ruta para generar pdf Ticket
 Route::get("generarTicket/{id}", [TicketTurnoController::class, 'generarTicket'])->name('generarTicket');
 
-Route::get('/graficas',[TicketTurnoController::class,'graficas'])->name('ticket.graficas');
+Route::get('/graficas',[TicketTurnoController::class,'graficas'])
+->middleware([
+    'auth', 'verified'
+])->name('ticket.graficas');
 
 Route::resources([
     'ticketTurno' => TicketTurnoController::class

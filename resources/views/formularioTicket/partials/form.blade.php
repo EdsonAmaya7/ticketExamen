@@ -84,7 +84,6 @@
                         <option value="">Seleccione una opción</option>
                         <option value="1">Saltillo</option>
                         <option value="2">Parras</option>
-                        <option value="3">Secundaria</option>
                     </select>
                 </div>
             </div>
@@ -93,7 +92,6 @@
                     <label for="">Asunto que va a tratar</label>
                     <input type="text" placeholder="asunto" class="form-control" id="asunto" name="asunto"
                     value="{{ old('asunto',optional($ticket ?? null)->asunto) }}">
-
                 </div>
             </div>
         </div>
